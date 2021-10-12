@@ -11,9 +11,9 @@ Field::Field(const size_t x, const size_t y)
 	this->sizeX = x;
 	this->sizeY = y;
 
-	this->table = new bool*[sizeX];
+	this->table = new Cell*[sizeX];
 	for (size_t i = 0; i < sizeX; ++i)
-		table[i] = new bool[sizeY];
+		table[i] = new Cell[sizeY];
 	this->fillWith(true);
 }
 
@@ -30,7 +30,7 @@ Field::getSizeY() const
 bool
 Field::getCell(size_t x, size_t y) const
 /* Return specified cell's value */
-{ return this->table[x][y]; }
+{ return this->table[x][y].getValue(); }
 
 void 
 Field::fillWith(const bool fillValue)
@@ -39,5 +39,9 @@ Field::fillWith(const bool fillValue)
 
 	for (size_t y = 0; y < this->sizeY; ++y)
 		for (size_t x = 0; x < this->sizeX; ++x)
-			this->table[x][y] = fillValue;
+		{
+			this->table[x][y].assign(fillValue);
+			this->table[x][y].update();
+		}
 }
+

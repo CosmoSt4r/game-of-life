@@ -1,5 +1,7 @@
 #include <fstream>
 
+#include "Cell.h"
+
 typedef unsigned long long size_t;
 
 /* Class for Game of Life game-field implementation 
@@ -15,6 +17,6 @@ public:
 	void fillWith(const bool fillValue);
 
 private:
-	bool **table;
+	Cell **table;
 	size_t sizeX, sizeY;
 };
