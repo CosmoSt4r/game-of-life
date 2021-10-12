@@ -2,7 +2,7 @@
 
 Field::Field(const size_t x, const size_t y)
 {
-	/* ----Default constructor--- 
+	/* ----Default constructor----
 	 *
 	 * Assignes sizeX, sizeY and builds the game-field 
 	 * according to these values. */
