@@ -31,6 +31,14 @@ Field::getCell(size_t x, size_t y) const
 /* Return specified cell's value */
 { return table[x][y].getValue(); }
 
+void
+Field::setCell(const size_t x, const size_t y, const bool value)
+/* Set specified value to cell at position X:Y */
+{ 
+	table[x][y].assign(value);
+	table[x][y].update();
+}
+
 void 
 Field::fillWith(const bool fillValue)
 {

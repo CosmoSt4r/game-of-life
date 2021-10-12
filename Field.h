@@ -13,7 +13,9 @@ public:
 
 	size_t getSizeX() const;
 	size_t getSizeY() const;
+
 	bool getCell(size_t, size_t) const;
+	void setCell(const size_t, const size_t, const bool);
 
 	void fillWith(const bool fillValue);
 	void fillRandom(const int sparseMultiplier = 2);
