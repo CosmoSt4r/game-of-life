@@ -6,16 +6,14 @@ typedef unsigned long long size_t;
  * Handles both field storing and game logic */
 class Field {
 public:
-	explicit Field(const size_t, const size_t, 
-					const char empty = ' ', const char filled = 'O');
+	explicit Field(const size_t, const size_t);
 
 	size_t getSizeX() const;
 	size_t getSizeY() const;
 
-	friend std::ostream& operator<<(std::ostream&, const Field&);
+	void clear();
 
 private:
 	bool **table;
 	size_t sizeX, sizeY;
-	char emptyCell, filledCell;
 };
