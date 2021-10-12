@@ -3,7 +3,7 @@
 
 int main()
 {
-	Field field(10, 10);
-
+	Field field(10, 5);
+	std::cout << field;
 	return 0;
 }
