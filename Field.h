@@ -1,4 +1,5 @@
 #include <fstream>
+#include <ctime>
 
 #include "Cell.h"
 
@@ -15,6 +16,7 @@ public:
 	bool getCell(size_t, size_t) const;
 
 	void fillWith(const bool fillValue);
+	void fillRandom(const int sparseMultiplier = 2);
 	void update();
 
 private:

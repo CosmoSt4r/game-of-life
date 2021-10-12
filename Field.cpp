@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Field.h"
 
 Field::Field(const size_t x, const size_t y)
@@ -47,27 +45,35 @@ Field::fillWith(const bool fillValue)
 }
 
 void
+Field::fillRandom(const int sparseMultiplier)
+{
+	srand(time(0));
+	for (size_t y = 0; y < sizeY; ++y)
+		for (size_t x = 0; x < sizeX; ++x)
+		{
+			table[x][y].assign(rand() % sparseMultiplier == 0);
+			table[x][y].update();
+		}
+}
+
+void
 Field::update()
 {
 	int neighboursCount = 0;
 	bool newValue;
 
 	for (size_t y = 0; y < sizeY; ++y)
-	{
 		for (size_t x = 0; x < sizeX; ++x)
 		{
 			neighboursCount = countNeighbours(x, y);
 			table[x][y].assign(neighboursCount);
 		}
-	}
 
 	for (size_t y = 0; y < sizeY; ++y)
-	{
 		for (size_t x = 0; x < sizeX; ++x)
 		{
 			table[x][y].update();
 		}
-	}
 }
 
 int
