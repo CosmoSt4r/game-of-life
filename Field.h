@@ -10,8 +10,9 @@ public:
 
 	size_t getSizeX() const;
 	size_t getSizeY() const;
+	bool getCell(size_t, size_t) const;
 
-	void clear();
+	void fillWith(const bool fillValue);
 
 private:
 	bool **table;
