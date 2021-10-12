@@ -1,3 +1,4 @@
+/* Class for handling cells' logic in Game of Life */
 class Cell {
 public:
 	Cell();

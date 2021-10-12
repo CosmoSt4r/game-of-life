@@ -23,5 +23,5 @@ private:
 	Cell **table;
 	size_t sizeX, sizeY;
 
-	int countNeighbours(size_t, size_t);
+	int countNeighbours(long long, long long);
 };
