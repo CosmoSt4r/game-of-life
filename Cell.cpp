@@ -1,9 +1,19 @@
+#include <iostream>
+
 #include "Cell.h"
 
-void Cell::assign(const bool value)
-{ changed = this->value != value; }
+Cell::Cell()
+{
+	value = false;
+	changed = false;
+}
 
-void Cell::assign(const int neighboursCount)
+void 
+Cell::assign(const bool value)
+{ changed = (this->value != value); }
+
+void
+Cell::assign(const int neighboursCount)
 {
 	if (value)
 	{
@@ -17,7 +27,8 @@ void Cell::assign(const int neighboursCount)
 	}
 }
 
-void Cell::update()
+void 
+Cell::update()
 { 
 	if (changed)
 	{
@@ -26,5 +37,6 @@ void Cell::update()
 	}
 }
 
-bool Cell::getValue() const
+bool 
+Cell::getValue() const
 { return value; }

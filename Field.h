@@ -15,8 +15,11 @@ public:
 	bool getCell(size_t, size_t) const;
 
 	void fillWith(const bool fillValue);
+	void update();
 
 private:
 	Cell **table;
 	size_t sizeX, sizeY;
+
+	int countNeighbours(size_t, size_t);
 };
