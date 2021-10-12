@@ -2,9 +2,12 @@
 
 typedef unsigned long long size_t;
 
+/* Class for Game of Life game-field implementation 
+ * Handles both field storing and game logic */
 class Field {
 public:
-	Field(size_t, size_t);
+	explicit Field(const size_t, const size_t, 
+					const char empty = ' ', const char filled = 'O');
 
 	size_t getSizeX() const;
 	size_t getSizeY() const;
@@ -14,4 +17,5 @@ public:
 private:
 	bool **table;
 	size_t sizeX, sizeY;
+	char emptyCell, filledCell;
 };
