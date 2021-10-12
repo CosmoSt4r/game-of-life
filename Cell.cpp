@@ -1,10 +1,30 @@
 #include "Cell.h"
 
-void Cell::assign(const bool newValue)
-{ this->changed = this->value != newValue; }
+void Cell::assign(const bool value)
+{ changed = this->value != value; }
+
+void Cell::assign(const int neighboursCount)
+{
+	if (value)
+	{
+		if (neighboursCount != 2 && neighboursCount != 3)
+			changed = true;
+	}
+	else 
+	{
+		if (neighboursCount == 3)
+			changed = true;
+	}
+}
 
 void Cell::update()
-{ this->value = this->changed ? !this->value : this->value; }
+{ 
+	if (changed)
+	{
+		value = !value;
+		changed = false;
+	}
+}
 
 bool Cell::getValue() const
-{ return this->value; }
+{ return value; }
