@@ -19,11 +19,13 @@ public:
 
 	void fillWith(const bool fillValue);
 	void fillRandom(const int sparseMultiplier = 2);
+	void assignNewValues();
 	void update();
 
 private:
 	Cell **table;
 	size_t sizeX, sizeY;
+	size_t prevTableHash;
 
 	int countNeighbours(long long, long long);
 };

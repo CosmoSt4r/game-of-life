@@ -70,12 +70,8 @@ Field::fillRandom(const int sparseMultiplier)
 }
 
 void
-Field::update()
+Field::assignNewValues()
 {
-	/* Update field according to `Game of life` rules.
-	 * First cycle: remember every cell's new value but don't change it.
-	 * Second cycle: change every cell's value to it's new value. */
-
 	int neighboursCount = 0;
 	bool newValue;
 
@@ -85,7 +81,15 @@ Field::update()
 			neighboursCount = countNeighbours((long long)x, (long long)y);
 			table[x][y].assign(neighboursCount);
 		}
+}
 
+void
+Field::update()
+{
+	/* Update field according to `Game of life` rules.
+	 * First cycle: remember every cell's new value but don't change it.
+	 * Second cycle: change every cell's value to it's new value. */
+	assignNewValues();
 	for (size_t y = 0; y < sizeY; ++y)
 		for (size_t x = 0; x < sizeX; ++x)
 			table[x][y].update();
