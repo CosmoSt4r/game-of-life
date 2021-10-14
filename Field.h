@@ -10,6 +10,7 @@ typedef unsigned long long size_t;
 class Field {
 public:
 	explicit Field(const size_t, const size_t);
+	~Field();
 
 	size_t getSizeX() const;
 	size_t getSizeY() const;

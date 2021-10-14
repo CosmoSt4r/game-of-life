@@ -16,6 +16,15 @@ Field::Field(const size_t x, const size_t y)
 	fillWith(false);
 }
 
+Field::~Field()
+{
+	/* ----Default destructor---- */
+
+	for (size_t i = 0; i < sizeX; ++i)
+		delete [] table[i];
+	delete [] table;
+}
+
 size_t 
 Field::getSizeX() const
 /* Return field's width (X) */
